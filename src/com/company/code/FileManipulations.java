@@ -25,6 +25,7 @@ public class FileManipulations {
             outFileDescriptor = new FileWriter(path + "output.txt", false);
 
         } catch (IOException ex) {
+            closeConnections();
             System.out.println(ex.getMessage());
         }
     }
@@ -65,6 +66,16 @@ public class FileManipulations {
                 ", outFileDescriptor=" + outFileDescriptor +
                 ", path='" + path + '\'' +
                 '}';
+    }
+
+    public void closeConnections(){
+        try {
+            this.inpFileDescriptor.close();
+            this.outFileDescriptor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     protected void finalize ( ) {

@@ -8,6 +8,7 @@ public class Node {
     private LocalTime depTime;
     private LocalTime arrTime;
 
+
     public Node(String company, LocalTime depTime, LocalTime arrTime) {
         this.company = company;
         this.depTime = depTime;

@@ -36,9 +36,13 @@ public class FileManipulationsLogic {
 
             listLogic.sortList(list);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
+            ob.closeConnections();
+            list.clear();
             System.out.println(e.getMessage());
+            return null;
         }
+
         return list;
     }
 
@@ -64,13 +68,10 @@ public class FileManipulationsLogic {
 
         }
         catch(IOException ex){
-
+            ob.closeConnections();
             System.out.println(ex.getMessage());
         }
 
-
-
-        System.out.println("file overwritten successfully");
     }
 
 
